@@ -17,11 +17,11 @@ jobs:
           with:
              name: dragon-text-file
              path: dragon.txt
-    test-job1:
+    test-job2:
         needs: build-job1
         runs-on: ubuntu-latest
         steps:
-        - name: uploding artifacts
+        - name: downloading artifacts
           uses: actions/download-artifact@v4
           with:
              name: dragon-text-file
@@ -30,10 +30,10 @@ jobs:
           run: grep "dragon" dragon.txt
 
     deploy-job3:
-        needs: build-job1
+        needs: test-job2
         runs-on: ubuntu-latest
         steps:
-        - name: uploding artifacts
+        - name: downloading artifacts
           uses: actions/download-artifact@v4
           with:
             name: dragon-text-file
