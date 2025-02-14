@@ -1,0 +1,40 @@
+name: uploading-artifacts
+
+on: push
+
+jobs: 
+    build-job1:
+        runs-on: ubuntu-latest
+        steps:
+        - name: install cowsay program
+          run: sudo apt-get install cowsay -y
+
+        - name: execute cowsay cmd
+          run: cowsaty -f dragon "run for cover, i am dragon ....raw" >>dragon.txt
+
+        - name: uploding artifacts
+          uses: actions/upload-artifact@v4
+          with:
+             name: dragon-text-file
+             path: dragon.txt
+    test-job1: 
+        runs-on: ubuntu-latest
+        steps:
+        - name: uploding artifacts
+          uses: actions/download-artifact@v4
+          with:
+             name: dragon-text-file
+             
+        - name: checking the file
+          run: grep "dragon" dragon.txt
+
+    deploy-job3:
+        runs-on: ubuntu-latest
+        steps:
+        - name: uploding artifacts
+          uses: actions/download-artifact@v4
+          with:
+            name: dragon-text-file
+        - name: list the file
+          run: cat dragon.txt
+
