@@ -16,6 +16,7 @@ jobs:
         - name: lsit files
           run: ls  -ltra
     deploy_job:
+        needs: build_job
         runs-on: ubuntu-latest
         steps: 
         - name: read the file
