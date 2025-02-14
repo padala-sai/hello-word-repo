@@ -17,7 +17,8 @@ jobs:
           with:
              name: dragon-text-file
              path: dragon.txt
-    test-job1: 
+    test-job1:
+        needs: build-job1
         runs-on: ubuntu-latest
         steps:
         - name: uploding artifacts
@@ -29,6 +30,7 @@ jobs:
           run: grep "dragon" dragon.txt
 
     deploy-job3:
+        needs: build-job1
         runs-on: ubuntu-latest
         steps:
         - name: uploding artifacts
