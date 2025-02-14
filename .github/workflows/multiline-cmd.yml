@@ -1,0 +1,16 @@
+name: multiline-commands
+
+on: push
+
+jobs: 
+    my-first-job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: checkout the code
+          uses: actions/checkout@v4
+        - name: multiline-commands
+          run: |
+             echo "hello word"
+             ls-ltra
+             cat README.md
+
