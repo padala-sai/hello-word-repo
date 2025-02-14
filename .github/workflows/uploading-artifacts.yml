@@ -30,7 +30,7 @@ jobs:
           run: grep "Dragon" dragon.txt
 
     deploy-job3:
-        needs: test-job2
+        needs: build-job1
         runs-on: ubuntu-latest
         steps:
         - name: downloading artifacts
