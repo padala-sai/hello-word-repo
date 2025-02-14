@@ -11,6 +11,6 @@ jobs:
         - name: multiline-commands
           run: |
              echo "hello word"
-             ls-ltra
+             ls -ltra
              cat README.md
 
