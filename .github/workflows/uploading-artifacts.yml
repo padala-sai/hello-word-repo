@@ -2,7 +2,7 @@ name: uploading-artifacts
 
 on: 
     workflow_dispatch:
-    #push
+    #push:
 
 jobs: 
     build-job1:
